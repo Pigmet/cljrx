@@ -50,6 +50,12 @@
 
 (defn or [& args] (re-pattern (st/join "|" (map str args) )))
 
+(defn not-any [s] (re-pattern (format "[^%s]" s) ))
+
+(defn group [s] (re-pattern (format "(%s)" s)))
+
+
+
 
 
 
