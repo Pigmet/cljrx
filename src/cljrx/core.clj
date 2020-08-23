@@ -1,6 +1,6 @@
 (ns cljrx.core
   (:require [clojure.string :as st])
-  (:refer-clojure :exclude [+ *]))
+  (:refer-clojure :exclude [+ * or ]))
 
 ;; should make this a library. 
 
@@ -47,6 +47,10 @@
 (defn * [& args] (re-pattern (str  (apply str args) "*")))
 
 (defn ? [& args] (re-pattern (str  (apply str args) "?")))
+
+(defn or [& args] (re-pattern (st/join "|" (map str args) )))
+
+
 
 
 
